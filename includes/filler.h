@@ -21,6 +21,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 
+int	fd;
 typedef struct			s_struct
 {
   char				**map;
@@ -28,11 +29,16 @@ typedef struct			s_struct
   int				y_max;
   char				**piece;
   int					player;
+  int				map_filled;
+  int				piece_filled;
+  int				c_tipar;
 }						t_struct;
 
-void	parse(t_struct *data, char *buf);
-int     get_player(t_struct *data, char *buf);
-  int     get_size(t_struct *data, char *buf);
-  int     get_map(t_struct *data, char *buf);
-  int     get_piece(t_struct *data, char *buf);
+char	**fill_tab(char *buf, char **tab, int y, int *c_fini);
+char	**alloc_tab(char **map, int x, int y);
+void	parse(t_struct *d, char *buf);
+int     get_player(t_struct *d, char *buf);
+int     get_size(t_struct *d, char *buf);
+int     get_map(t_struct *d, char *buf);
+int     get_piece(t_struct *d, char *buf);
 #endif

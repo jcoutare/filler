@@ -12,8 +12,8 @@
 
 SRC = 	src/read.c \
 		src/get_next_line.c \
-		src/parse.c
-
+		src/parse.c \
+		src/tools.c
 NAME = jcoutare.filler
 
 CC = clang
