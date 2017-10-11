@@ -49,11 +49,25 @@ char	**fill_tab(char *buf, char **tab, int y, int *c_fini)
   i = 0;
   while (tab[i][0] != 0)
     i++;
+    tab[i] = cpy_only_with_src(tab[i], buf, "XO.");
   if (i + 1 == y)
     {
       *c_fini = 1;
       return (tab);
     }
-  tab[i] = cpy_only_with_src(tab[i], buf, "XO.");
   return (tab);
+}
+
+void	str_nb_fd(char *str, int nb)
+{
+  ft_putstr_fd(str, fd);
+  ft_putnbr_fd(nb, fd);
+  ft_putchar_fd('\n', fd);
+}
+
+void	str_str_fd(char *str, char *str1)
+{
+  ft_putstr_fd(str, fd);
+  ft_putstr_fd(str1, fd);
+  ft_putchar_fd('\n', fd);
 }

@@ -4,11 +4,28 @@
 int	get_piece(t_struct *d, char *buf)
 {
   size_t lol;
+  int i;
 
+  i = 0;
   lol = ft_strlen("Piece ");
-  if (ft_strncmp(buf, "Piece ", lol) != 0)
-    return (0);
-  d->piece_y_max = ft_atoi(buf + lol);
+  if (ft_strncmp(buf, "Piece ", lol) == 0)
+    {
+      d->piece_y_max = ft_atoi(buf + lol);
+      d->piece_x_max = ft_atoi(buf + lol +
+			      ft_strlen(ft_itoa(d->piece_y_max)));
+      if (!((d->piece = alloc_tab(d->piece, d->piece_x_max, d->piece_y_max))))
+	return (-1);
+      return (1);
+    }
+  while (d->piece[i][0] != 0)
+    i++;
+   d->piece[i] = ft_strcpy(d->piece[i], buf);
+  if (i + 1 == d->piece_y_max)
+    {
+      d->piece_filled = 1;
+      return (1);
+    }
+  return (1);
 }
 
 int	get_map(t_struct *d, char *buf)

@@ -24,16 +24,20 @@
 int	fd;
 typedef struct			s_struct
 {
+  int				c_tipar;
   char				**map;
   int				x_max;
   int				y_max;
   char				**piece;
-  int					player;
+  int			       	player;
   int				map_filled;
   int				piece_filled;
-  int				c_tipar;
+  int				piece_x_max;
+  int				piece_y_max;
 }						t_struct;
 
+void    str_nb_fd(char *str, int nb);
+void    str_str_fd(char *str, char *str1);
 char	**fill_tab(char *buf, char **tab, int y, int *c_fini);
 char	**alloc_tab(char **map, int x, int y);
 void	parse(t_struct *d, char *buf);
