@@ -6,14 +6,14 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 12:17:43 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/29 15:13:42 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/04/20 19:24:37 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-static char		*nbtostr(char *str, int lgt, long long n, int neg)
+static char		*nbtostr(char *str, int lgt, int n, int neg)
 {
 	if ((str = malloc(sizeof(char) * (lgt + 1))) == NULL)
 		return (NULL);
@@ -29,19 +29,19 @@ static char		*nbtostr(char *str, int lgt, long long n, int neg)
 	return (str);
 }
 
-char			*ft_itoa(long long n)
+char			*ft_itoa(int n)
 {
-	char						*str;
-	int							lgt;
-	unsigned long				nb;
-	int							neg;
+	char		*str;
+	int			lgt;
+	int			nb;
+	int			neg;
 
 	lgt = 1;
 	neg = 1;
 	str = NULL;
-	if (n < -9223372036854775807)
+	if (n == -2147483648)
 	{
-		str = ft_strdup("-9223372036854775808");
+		str = ft_strdup("-2147483648");
 		return (str);
 	}
 	if (n < 0 && neg++)

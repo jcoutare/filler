@@ -6,16 +6,16 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/10 15:04:52 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/28 12:00:18 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/04/26 17:35:41 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# include "get_next_line.h"
 # include <unistd.h>
 # include <string.h>
 # include <stdlib.h>
-# include <stdio.h>
 
 typedef struct			s_list
 {
@@ -71,8 +71,7 @@ char					*ft_strsub(char const *s,
 char					*ft_strjoin(char const *s1, char const *s2);
 char					*ft_strtrim(char const *s);
 char					**ft_strsplit(char const *s, char c);
-char					*ft_itoa(long long n);
-char					*ft_itoa_ull(unsigned long long n);
+char					*ft_itoa(int n);
 void					ft_putendl_fd(char const *s, int fd);
 void					ft_putchar_fd(char c, int fd);
 void					ft_putstr_fd(char const *s, int fd);

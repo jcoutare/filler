@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
 #include "get_next_line.h"
 
 int		strichr(char *str, char c)

@@ -14,14 +14,14 @@
 # define FILLER_H
 # define ICI printf("ICI\n");
 # define LA printf("LA\n");
-# include "libft.h"
-# include "get_next_line.h"
+# include "../libft/libft.h"
 # include <stdarg.h>
 # include <stdio.h>
 # include <unistd.h>
 # include <fcntl.h>
 
 int	fd;
+
 typedef struct			s_struct
 {
   int				c_tipar;

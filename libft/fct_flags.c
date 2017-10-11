@@ -1,23 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   fct_flags.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/10 08:05:57 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/08/13 17:08:52 by jcoutare         ###   ########.fr       */
+/*   Created: 2017/09/07 15:38:33 by jcoutare          #+#    #+#             */
+/*   Updated: 2017/10/09 13:56:58 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "ft_printf.h"
 
-# define BUFF_SIZE 4096
-# include <fcntl.h>
-# include <unistd.h>
-# include <stdio.h>
+void	flag_diese(t_struct *data)
+{
+	data->f_sharp = 1;
+}
 
-int		get_next_line(const int fd, char **line);
+void	flag_moins(t_struct *data)
+{
+	data->f_moins = 1;
+	data->f_zero = 0;
+}
 
-#endif
+void	flag_plus(t_struct *data)
+{
+	data->f_plus = 1;
+}
+
+void	flag_space(t_struct *data)
+{
+	data->f_space = 1;
+}
+
+void	flag_zero(t_struct *data)
+{
+	if (data->f_moins == 0)
+		data->f_zero = 1;
+}

@@ -6,7 +6,7 @@
 #    By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/10 14:58:59 by jcoutare          #+#    #+#              #
-#    Updated: 2017/10/10 14:49:35 by jcoutare         ###   ########.fr        #
+#    Updated: 2017/05/04 13:35:13 by jcoutare         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -14,11 +14,25 @@ NAME = libft.a
 
 CC = gcc
 
-INCLUDES += -I../includes
+CFLAGS += -Wall -Wextra -Werror -Iincludes
 
-CFLAGS += -Wall -Wextra -Werror $(INCLUDES)
-
-SRC =	ft_itoa_ull.c \
+SRC =		fct_unicode.c \
+		larg_prec_tools.c \
+		fct_conv_char.c \
+		fct_conv_number.c \
+		fill_resolved.c \
+		make_zero.c \
+		fct_flags2.c \
+		modif_tools.c \
+		fct_conv.c \
+		fct_flags.c \
+		fct_modif.c \
+		itoa_base.c \
+		larg_prec.c \
+		make_flags.c \
+		run.c \
+		run_tools.c \
+		tab.c \
 		ft_putstr.c \
 		ft_strcmp.c \
 		ft_strdup.c \
@@ -54,8 +68,8 @@ SRC =	ft_itoa_ull.c \
 		ft_strnstr.c \
 		ft_strrchr.c \
 		ft_memdel.c \
-		ft_strnew.c	\
-		ft_strdel.c	\
+		ft_strnew.c \
+		ft_strdel.c \
 		ft_strclr.c \
 		ft_striter.c \
 		ft_striteri.c \
@@ -83,17 +97,17 @@ SRC =	ft_itoa_ull.c \
 		ft_list_size.c \
 		ft_list_at.c \
 		ft_list_push_back.c \
-		ft_list_reverse.c
+		ft_list_reverse.c \
+		get_next_line.c
 
 OBJ = $(SRC:.c=.o)
 
 all : $(NAME)
 
 $(NAME):	$(OBJ)
-			@ar rcs $(NAME) $(OBJ)
+			ar rcs $(NAME) $(OBJ)
 clean:
-		@rm -f $(OBJ)
-fclean:
-		@rm -f $(OBJ)
+		rm -f $(OBJ)
+fclean: clean
 		rm -f libft.a
 re: fclean all
