@@ -38,7 +38,8 @@ typedef struct			s_struct
 
 void    str_nb_fd(char *str, int nb);
 void    str_str_fd(char *str, char *str1);
-char	**fill_tab(char *buf, char **tab, int y, int *c_fini);
+int	fill_tab(t_struct *d, char *buf);
+int	fill_piece(t_struct *d, char *buf);
 char	**alloc_tab(char **map, int x, int y);
 void	parse(t_struct *d, char *buf);
 int     get_player(t_struct *d, char *buf);

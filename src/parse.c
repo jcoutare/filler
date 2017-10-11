@@ -3,10 +3,8 @@
 
 int	get_piece(t_struct *d, char *buf)
 {
-  size_t lol;
-  int i;
+  int lol;
 
-  i = 0;
   lol = ft_strlen("Piece ");
   if (ft_strncmp(buf, "Piece ", lol) == 0)
     {
@@ -17,15 +15,7 @@ int	get_piece(t_struct *d, char *buf)
 	return (-1);
       return (1);
     }
-  while (d->piece[i][0] != 0)
-    i++;
-   d->piece[i] = ft_strcpy(d->piece[i], buf);
-  if (i + 1 == d->piece_y_max)
-    {
-      d->piece_filled = 1;
-      return (1);
-    }
-  return (1);
+  return (fill_piece(d, buf));
 }
 
 int	get_map(t_struct *d, char *buf)
@@ -38,8 +28,7 @@ int	get_map(t_struct *d, char *buf)
       if (!((d->map = alloc_tab(d->map, d->x_max, d->y_max))))
 	return (-1);
     }
-  d->map = fill_tab(buf, d->map, d->y_max, &d->map_filled);
-  return (1);
+  return (fill_tab(d,buf));
 }
 
 int	get_size(t_struct *d, char *buf)

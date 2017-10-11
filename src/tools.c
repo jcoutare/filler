@@ -42,20 +42,36 @@ char	*cpy_only_with_src(char *dest, char *buf, char *src)
   return (dest);
 }
 
-char	**fill_tab(char *buf, char **tab, int y, int *c_fini)
+int	fill_piece(t_struct *d, char *buf)
 {
   int i;
 
   i = 0;
-  while (tab[i][0] != 0)
+  while (d->piece[i][0] != 0)
     i++;
-    tab[i] = cpy_only_with_src(tab[i], buf, "XO.");
-  if (i + 1 == y)
+  d->piece[i] = ft_strcpy(d->piece[i], buf);
+  if (i + 1 == d->piece_y_max)
     {
-      *c_fini = 1;
-      return (tab);
+      d->piece_filled = 1;
+      return (1);
     }
-  return (tab);
+  return (1);
+}
+
+int	fill_tab(t_struct *d, char *buf)
+{
+  int i;
+
+  i = 0;
+  while (d->map[i][0] != 0)
+    i++;
+    d->map[i] = cpy_only_with_src(d->map[i], buf, "XO.");
+  if (i + 1 == d->y_max)
+    {
+      d->map_filled = 1;
+      return (1);
+    }
+  return (1);
 }
 
 void	str_nb_fd(char *str, int nb)
