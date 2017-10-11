@@ -12,6 +12,7 @@
 
 SRC = 	src/read.c \
 		src/get_next_line.c \
+		src/parse.c
 
 NAME = jcoutare.filler
 
@@ -24,8 +25,8 @@ OBJ = $(SRC:.c=.o)
 all : $(NAME)
 
 $(NAME): $(OBJ)
-		@make -C libft/
-		@$(CC) -o $(NAME) -Llibft -lft $(OBJ)
+		make -C libft/
+		$(CC) -o $(NAME) -Llibft -lft $(OBJ)
 
 clean:
 		make clean -C libft/

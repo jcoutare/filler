@@ -23,9 +23,16 @@
 
 typedef struct			s_struct
 {
-	char				**map;
-	char				**piece;
-	int					player;
+  char				**map;
+  int				x_max;
+  int				y_max;
+  char				**piece;
+  int					player;
 }						t_struct;
 
+void	parse(t_struct *data, char *buf);
+int     get_player(t_struct *data, char *buf);
+  int     get_size(t_struct *data, char *buf);
+  int     get_map(t_struct *data, char *buf);
+  int     get_piece(t_struct *data, char *buf);
 #endif

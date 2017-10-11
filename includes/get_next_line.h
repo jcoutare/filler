@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 08:05:57 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/10/10 14:23:04 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/08/13 17:08:52 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdio.h>
-# include "filler.h"
 
 int		get_next_line(const int fd, char **line);
 
