@@ -6,11 +6,12 @@
 #    By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/16 11:07:45 by jcoutare          #+#    #+#              #
-#    Updated: 2017/10/10 14:47:34 by jcoutare         ###   ########.fr        #
+#    Updated: 2017/11/17 11:16:49 by jcoutare         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
-SRC = 	src/read.c \
+SRC = 	src/algo.c \
+		src/read.c \
 		src/parse.c \
 		src/tools.c
 NAME = jcoutare.filler

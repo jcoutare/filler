@@ -74,7 +74,7 @@ int	algo(t_struct *d)
 							ok++;
 							miam++;
 						}
-						if (ok == d->nb_stars && miam == 1)
+						if (ok == d->nb_stars && miam = 1)
 						{
 							print_result(j, i);
 							return (1);

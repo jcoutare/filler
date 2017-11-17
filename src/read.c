@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 10:04:59 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/11/17 10:09:15 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/11/17 12:58:21 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	affiche(t_struct d)
     }
 }
 
-int	main(void)
+int		main(void)
 {
 	t_struct d;
 	char *buf;
@@ -63,15 +63,20 @@ int	main(void)
 	d.piece_filled = 0;
 	d.piece_x_max = 0;
 	d.piece_y_max = 0;
-	d.c_tipar = 0;
 	if ((fd = open("check", O_RDWR | O_CREAT, S_IRWXU)) < 0)
 		return (-1);
 	while ((kk = get_next_line(0, &buf)) > 0)
     {
 		parse(&d, buf);
 		if (d.piece_filled == 1)
+		{
+			cpt_stars(&d);
+			algo(&d);
 			affiche(d);
+		}
     }
+	free_tab(d.map);
+	free_tab(d.piece);
 	if (kk == -1)
 		return (-1);
 	close(fd);

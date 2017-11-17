@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/10 13:48:55 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/10/10 14:37:41 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/11/17 12:57:54 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,22 @@ int	fd;
 
 typedef struct			s_struct
 {
-  int				c_tipar;
-  char				**map;
-  int				x_max;
-  int				y_max;
-  char				**piece;
-  int			       	player;
-  int				map_filled;
-  int				piece_filled;
-  int				piece_x_max;
-  int				piece_y_max;
+	int				nb_stars;
+	char			**map;
+	int				x_max;
+	int				y_max;
+	char			**piece;
+	int			     player;
+	int				map_filled;
+	int				piece_filled;
+	int				piece_x_max;
+	int				piece_y_max;
 }						t_struct;
 
+void	print_result(int x, int y);
+int	algo(t_struct *d);
+void	cpt_stars(t_struct *d);
+void	free_tab(char **tab);
 void    str_nb_fd(char *str, int nb);
 void    str_str_fd(char *str, char *str1);
 int	fill_tab(t_struct *d, char *buf);

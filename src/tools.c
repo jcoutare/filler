@@ -6,11 +6,20 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 10:06:31 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/11/17 10:15:21 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/11/17 11:36:52 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
+
+void	free_tab(char **tab)
+{
+	int i;
+
+	i = 0;
+	while (tab[i])
+		ft_strdel(&tab[i++]);
+}
 
 char	**alloc_tab(char **tab, int x, int y)
 {
@@ -87,6 +96,13 @@ int	fill_tab(t_struct *d, char *buf)
 	return (1);
 }
 
+void	print_result(int x, int y)
+{
+	ft_putnbr(x);
+	ft_putchar(' ');
+	ft_putnbr(y);
+	ft_putchar('\n');
+}
 void	str_nb_fd(char *str, int nb)
 {
 	ft_putstr_fd(str, fd);
