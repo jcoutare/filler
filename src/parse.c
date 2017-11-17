@@ -76,6 +76,4 @@ void	parse(t_struct *d, char *buf)
       if (get_piece(d, buf) == 1)
 	return ;
     }
-  else
-    d->c_tipar = 1;
 }
