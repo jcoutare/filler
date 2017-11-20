@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 10:04:59 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/11/20 13:14:44 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/11/20 16:36:43 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int		main(void)
 		parse(&d, buf);
 		if (d.piece_filled == 1)
 		{
+			cpt_stars(&d);
 			affiche(d);
 			if (la_balade(&d) == 1)
 			{

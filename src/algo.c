@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 10:05:31 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/11/20 13:13:35 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/11/20 16:36:53 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,27 @@ int		place(t_struct *d, int i, int j)
 		while (b < d->piece_x_max)
 		{
 			if (d->piece[a][b] == '*'
-				&& i + a > 0 && j + b > 0
+				&& i + a >= 0 && j + b >= 0
 				&& i + a < d->y_max && j + b < d->x_max)
 			{
 				if (d->map[i + a][j + b] == 'X')
-					return (1);
+				{
+					miam++;
+					stars++;
+				}
+				if (d->map[i + a][j + b] == 'O')
+					return (0);
+				if (d->map[i + a][j + b] == '.')
+					stars++;
 			}
 			b++;
 		}
 		a++;
+	}
+	if (miam == 1 && stars == d->nb_stars)
+	{
+		print_result_fd(i, j);
+		return (1);
 	}
 	return (0);
 }

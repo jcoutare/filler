@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 10:06:31 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/11/20 11:34:59 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/11/20 16:18:06 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,16 +103,12 @@ void	print_result(int y, int x)
 	ft_putnbr(x);
 	ft_putchar('\n');
 }
-void	str_nb_fd(char *str, int nb)
-{
-	ft_putstr_fd(str, fd);
-	ft_putnbr_fd(nb, fd);
-	ft_putchar_fd('\n', fd);
-}
 
-void	str_str_fd(char *str, char *str1)
+void	print_result_fd(int y, int x)
 {
-	ft_putstr_fd(str, fd);
-	ft_putstr_fd(str1, fd);
+	ft_putstr_fd("RESULT = ", fd);
+	ft_putnbr_fd(y, fd);
+	ft_putchar_fd(' ', fd);
+	ft_putnbr_fd(x, fd);
 	ft_putchar_fd('\n', fd);
 }
