@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 10:04:52 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/11/17 10:04:54 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/11/20 13:12:12 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	get_map(t_struct *d, char *buf)
     {
 		if (!((d->map = alloc_tab(d->map, d->x_max, d->y_max))))
 			return (-1);
-    }
+	}
 	return (fill_tab(d,buf));
 }
 

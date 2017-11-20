@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 10:05:31 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/11/17 15:13:17 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/11/20 13:13:35 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,56 +40,54 @@ void	tamer(int i, int j)
 	ft_putnbr_fd(i, fd);
 }
 
-int	algo(t_struct *d)
+int		place(t_struct *d, int i, int j)
 {
 	int miam;
-	int ok;
-	int i;
-	int j;
 	int a;
 	int b;
+	int stars;
 
-	i = 0;
+	stars = 0;
+	miam = 0;
 	a = 0;
-	while (d->map[i])
+	while (a < d->piece_y_max)
 	{
-		j = 0;
-		while (d->map[i][j])
+		b = 0;
+		while (b < d->piece_x_max)
 		{
-			a = 0;
-			ok = 0;
-			miam = 0;
-			while (d->piece[a])
+			if (d->piece[a][b] == '*'
+				&& i + a > 0 && j + b > 0
+				&& i + a < d->y_max && j + b < d->x_max)
 			{
-				b = 0;
-
-				while (d->piece[a][b])
-				{
-					if (d->piece[a][b] == '*' && ((i + a < d->y_max) && j + b < d->x_max))
-					{
-						if (d->map[i + a][j + b] == '.')
-							ok++;
-						if (d->map[i + a][j + b] == '*')
-						{
-							ok++;
-							miam++;
-						}
-						if (ok == d->nb_stars && miam == 1)
-						{
-							print_result(j, i);
-							return (1);
-						}
-					}
-					b++;
-				}
-
-				a++;
+				if (d->map[i + a][j + b] == 'X')
+					return (1);
 			}
+			b++;
+		}
+		a++;
+	}
+	return (0);
+}
 
+int		la_balade(t_struct *d)
+{
+	int i;
+	int j;
+
+	i = 0 - (d->piece_y_max - 1);
+	while (i < d->y_max)
+	{
+		j = 0 - (d->piece_x_max - 1);
+		while (j < d->x_max)
+		{
+			if (place(d, i, j) == 1)
+			{
+				print_result(i, j);
+				return (1);
+			}
 			j++;
 		}
 		i++;
 	}
 	return (0);
 }
-

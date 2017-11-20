@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 10:06:31 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/11/17 11:36:52 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/11/20 11:34:59 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,11 +96,11 @@ int	fill_tab(t_struct *d, char *buf)
 	return (1);
 }
 
-void	print_result(int x, int y)
+void	print_result(int y, int x)
 {
-	ft_putnbr(x);
-	ft_putchar(' ');
 	ft_putnbr(y);
+	ft_putchar(' ');
+	ft_putnbr(x);
 	ft_putchar('\n');
 }
 void	str_nb_fd(char *str, int nb)

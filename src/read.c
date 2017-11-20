@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 10:04:59 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/11/17 12:58:21 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/11/20 13:14:44 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,18 @@ int		main(void)
 		parse(&d, buf);
 		if (d.piece_filled == 1)
 		{
-			cpt_stars(&d);
-			algo(&d);
 			affiche(d);
+			if (la_balade(&d) == 1)
+			{
+				free_tab(d.map);
+				free_tab(d.piece);
+				d.y_max = 0;
+				d.x_max = 0;
+				d.piece_filled = 0;
+				d.map_filled = 0;
+			}
 		}
     }
-	free_tab(d.map);
-	free_tab(d.piece);
 	if (kk == -1)
 		return (-1);
 	close(fd);

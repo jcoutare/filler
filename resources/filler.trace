@@ -1,7 +1,5 @@
-seed = 6009
-X: error on input
-../jcoutare.filler: Segfault at 0
+seed = 6457
 O: error on input
 players/hcao.filler won
 Score:
-8AGAINST0
+38AGAINST20
