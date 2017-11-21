@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/10 13:48:55 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/11/21 12:10:40 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/11/21 14:59:46 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	fd;
 
 typedef struct			s_struct
 {
+	char			gentil;
 	int				nb_stars;
 	char			**map;
 	int				x_max;

@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 10:04:59 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/11/21 14:03:26 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/11/21 15:00:07 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int		main(void)
 	d.piece_filled = 0;
 	d.piece_x_max = 0;
 	d.piece_y_max = 0;
+	d.gentil = 'O';
 	if ((fd = open("check", O_RDWR | O_CREAT, S_IRWXU)) < 0)
 		return (-1);
 	while ((kk = get_next_line(0, &buf)) > 0)
@@ -73,7 +74,7 @@ int		main(void)
 		if (d.piece_filled == 1)
 		{
 			cpt_stars(&d);
-			affiche(d);
+			//affiche(d);
 			if (re == 1)
 			{
 				re = 0;
@@ -87,7 +88,10 @@ int		main(void)
 					d.map_filled = 0;
 				}
 				else
+				{
+					print_result(0,0);
 					return (0);
+				}
 			}
 			else if (la_balade(&d) == 1)
 			{
@@ -101,7 +105,7 @@ int		main(void)
 			}
 			else
 			{
-				close(fd);
+				print_result(0,0);
 				return (0);
 			}
 		}

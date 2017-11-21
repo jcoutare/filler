@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 10:04:52 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/11/20 13:12:12 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/11/21 15:00:04 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ int	get_player(t_struct *d, char *buf)
 	if (ft_strncmp(buf,"$$$ exec p", lol) != 0)
 		return (0);
 	d->player = ft_atoi(buf + lol);
+	if (d->player == 2)
+		d->gentil = 'X';
 	return (1);
 }
 
