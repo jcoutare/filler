@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/10 13:48:55 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/11/21 16:20:10 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/11/21 16:24:46 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct			s_struct
 	int				piece_y_max;
 }						t_struct;
 
-void	c_tipar(t_struct *d);
+void	c_tipar(t_struct *d, int *re);
 int		la_promenade(t_struct *d);
 int		la_repromenade(t_struct *d);
 int		la_rebalade(t_struct *d);

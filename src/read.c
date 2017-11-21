@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 10:04:59 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/11/21 16:20:19 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/11/21 16:24:38 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int		main(void)
 		parse(&d, buf);
 		if (d.piece_filled == 1)
 		{
-			c_tipar(&d);
+			c_tipar(&d, &re);
 		}
     }
 	if (kk == -1)

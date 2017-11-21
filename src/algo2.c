@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 12:00:48 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/11/21 16:20:49 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/11/21 16:25:52 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,12 @@ void	clear(t_struct *d)
 	d->map_filled = 0;
 }
 
-void	c_tipar(t_struct *d)
+void	c_tipar(t_struct *d, int *re)
 {
-	int re;
-
-	re = 0;
 	cpt_stars(d);
-	if (re == 1)
+/*	if (*re == 1)
 	{
-	re = 0;
+	*re = 0;
 	if (la_rebalade(d) == 1)
 	clear(d);
 	else
@@ -63,14 +60,14 @@ void	c_tipar(t_struct *d)
 	else if (la_balade(d) == 1)
 	{
 	clear(d);
-	re = 1;
+	*re = 1;
 	}
 	else
 	print_result(0,0);
-/*
-	if (re == 1)
+*/
+	if (*re == 1)
 	{
-		re = 0;
+		*re = 0;
 		if (la_repromenade(d) == 1)
 			clear(d);
 		else
@@ -80,8 +77,8 @@ void	c_tipar(t_struct *d)
 	else if (la_promenade(d) == 1)
 	{
 		clear(d);
-		re = 1;
+		*re = 1;
 	}
 	else
 		print_result(0,0);
-*/}
+}
