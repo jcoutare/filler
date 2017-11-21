@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 10:04:59 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/11/21 15:00:07 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/11/21 16:20:19 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,41 +73,7 @@ int		main(void)
 		parse(&d, buf);
 		if (d.piece_filled == 1)
 		{
-			cpt_stars(&d);
-			//affiche(d);
-			if (re == 1)
-			{
-				re = 0;
-				if (la_rebalade(&d) == 1)
-				{
-					free_tab(d.map);
-					free_tab(d.piece);
-					d.y_max = 0;
-					d.x_max = 0;
-					d.piece_filled = 0;
-					d.map_filled = 0;
-				}
-				else
-				{
-					print_result(0,0);
-					return (0);
-				}
-			}
-			else if (la_balade(&d) == 1)
-			{
-				free_tab(d.map);
-				free_tab(d.piece);
-				d.y_max = 0;
-				d.x_max = 0;
-				d.piece_filled = 0;
-				d.map_filled = 0;
-				re = 1;
-			}
-			else
-			{
-				print_result(0,0);
-				return (0);
-			}
+			c_tipar(&d);
 		}
     }
 	if (kk == -1)
