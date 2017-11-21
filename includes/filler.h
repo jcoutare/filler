@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/10 13:48:55 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/11/20 16:16:38 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/11/21 12:10:40 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ typedef struct			s_struct
 	int				piece_y_max;
 }						t_struct;
 
+int		la_rebalade(t_struct *d);
+int		cpt_dot(t_struct *d);
+void	affiche(t_struct d);
 void	print_result_fd(int y, int x);
 int		place(t_struct *d, int i, int j);
 void	print_result(int y, int x);

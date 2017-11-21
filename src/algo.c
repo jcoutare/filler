@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 10:05:31 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/11/20 16:36:53 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/11/21 11:59:12 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,26 @@ void	cpt_stars(t_struct *d)
 	}
 }
 
-void	tamer(int i, int j)
+int	cpt_dot(t_struct *d)
 {
-	ft_putstr_fd("Rendu = \n", fd);
-	ft_putnbr_fd(j, fd);
-	ft_putstr_fd(" | ", fd);
-	ft_putnbr_fd(i, fd);
+	int i;
+	int j;
+	int nb_dot;
+
+	i = 0;
+	nb_dot = 0;
+	while (d->map[i])
+	{
+		j = 0;
+		while (d->map[i][j])
+		{
+			if (d->map[i][j] == '.')
+				nb_dot++;
+			j++;
+		}
+		i++;
+	}
+	return (nb_dot);
 }
 
 int		place(t_struct *d, int i, int j)
@@ -64,20 +78,17 @@ int		place(t_struct *d, int i, int j)
 					miam++;
 					stars++;
 				}
-				if (d->map[i + a][j + b] == 'O')
-					return (0);
-				if (d->map[i + a][j + b] == '.')
+				else if (d->map[i + a][j + b] == '.')
 					stars++;
+				else
+					return (0);
 			}
 			b++;
 		}
 		a++;
 	}
 	if (miam == 1 && stars == d->nb_stars)
-	{
-		print_result_fd(i, j);
 		return (1);
-	}
 	return (0);
 }
 
@@ -95,6 +106,7 @@ int		la_balade(t_struct *d)
 			if (place(d, i, j) == 1)
 			{
 				print_result(i, j);
+				print_result_fd(i, j);
 				return (1);
 			}
 			j++;

@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 10:04:59 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/11/20 16:36:43 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/11/21 14:03:26 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,9 @@ int		main(void)
 	t_struct d;
 	char *buf;
 	int kk;
+	int re;
 
+	re = 0;
 	buf = NULL;
 	d.player = 0;
 	d.y_max = 0;
@@ -72,7 +74,22 @@ int		main(void)
 		{
 			cpt_stars(&d);
 			affiche(d);
-			if (la_balade(&d) == 1)
+			if (re == 1)
+			{
+				re = 0;
+				if (la_rebalade(&d) == 1)
+				{
+					free_tab(d.map);
+					free_tab(d.piece);
+					d.y_max = 0;
+					d.x_max = 0;
+					d.piece_filled = 0;
+					d.map_filled = 0;
+				}
+				else
+					return (0);
+			}
+			else if (la_balade(&d) == 1)
 			{
 				free_tab(d.map);
 				free_tab(d.piece);
@@ -80,6 +97,12 @@ int		main(void)
 				d.x_max = 0;
 				d.piece_filled = 0;
 				d.map_filled = 0;
+				re = 1;
+			}
+			else
+			{
+				close(fd);
+				return (0);
 			}
 		}
     }
