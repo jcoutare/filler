@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 10:04:59 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/11/21 16:24:38 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/11/22 13:34:15 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ void	affiche(t_struct d)
 		ft_putstr_fd(" X = ", fd);
 		ft_putnbr_fd(d.x_max, fd);
 		ft_putstr_fd("]\n", fd);
+		ft_putstr_fd("PLAYER = ", fd);
+		ft_putchar_fd(d.gentil, fd);
+		ft_putchar_fd('\n', fd);
 		while (d.map[i])
 		{
 			ft_putstr_fd(d.map[i], fd);
@@ -73,6 +76,7 @@ int		main(void)
 		parse(&d, buf);
 		if (d.piece_filled == 1)
 		{
+			affiche(d);
 			c_tipar(&d, &re);
 		}
     }

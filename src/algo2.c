@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 12:00:48 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/11/22 13:12:36 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/11/22 17:21:11 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ int		la_rebalade(t_struct *d)
 	int j;
 
 	i = d->y_max;
-	while (i >= d->piece_y_max - 1)
+	while (i >= (0 - d->piece_y_max - 1))
 	{
 		j = d->x_max;
-		while (j >= d->piece_x_max - 1)
+		while (j >= (0 - d->piece_x_max - 1))
 		{
 			if (place(d, i, j) == 1)
 			{
@@ -66,7 +66,7 @@ int		la_repromenade(t_struct *d)
 	int j;
 
 	i = d->y_max;
-	while (i >= d->piece_y_max - 1)
+	while (i >= (0 - d->piece_y_max - 1))
 	{
 		j = 0 - (d->piece_x_max - 1);
 		while (j <= d->x_max)
@@ -92,7 +92,7 @@ int		la_promenade(t_struct *d)
 	while (i <= d->y_max)
 	{
 		j = d->x_max;
-		while (j >= d->piece_x_max - 1)
+		while (j >= (0 - d->piece_x_max - 1))
 		{
 			if (place(d, i, j) == 1)
 			{
