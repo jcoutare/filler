@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 10:05:31 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/11/21 15:05:44 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/11/22 13:12:42 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,16 @@ void	cpt_stars(t_struct *d)
 		}
 		i++;
 	}
+}
+
+void	clear(t_struct *d)
+{
+	free_tab(d->map);
+	free_tab(d->piece);
+	d->y_max = 0;
+	d->x_max = 0;
+	d->piece_filled = 0;
+	d->map_filled = 0;
 }
 
 int		place(t_struct *d, int i, int j)
@@ -68,26 +78,39 @@ int		place(t_struct *d, int i, int j)
 	return (0);
 }
 
-int		la_balade(t_struct *d)
+void	c_tipar(t_struct *d, int *re)
 {
-	int i;
-	int j;
-
-	i = 0 - (d->piece_y_max - 1);
-	while (i <= d->y_max)
+	cpt_stars(d);
+/*	if (*re == 1)
 	{
-		j = 0 - (d->piece_x_max - 1);
-		while (j <= d->x_max)
-		{
-			if (place(d, i, j) == 1)
-			{
-				print_result_fd(i, j);
-				print_result(i, j);
-				return (1);
-			}
-			j++;
-		}
-		i++;
+	*re = 0;
+	if (la_rebalade(d) == 1)
+	clear(d);
+	else
+	print_result(0,0);
 	}
-	return (0);
+	else if (la_balade(d) == 1)
+	{
+	clear(d);
+	*re = 1;
+	}
+	else
+	print_result(0,0);
+*/
+	if (*re == 1)
+	{
+		*re = 0;
+		if (la_repromenade(d) == 1)
+			clear(d);
+		else
+			print_result(0,0);
+
+	}
+	else if (la_promenade(d) == 1)
+	{
+		clear(d);
+		*re = 1;
+	}
+	else
+		print_result(0,0);
 }
