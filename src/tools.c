@@ -18,7 +18,8 @@ void	free_tab(char **tab)
 
 	i = 0;
 	while (tab[i])
-		ft_strdel(&tab[i++]);
+	  ft_strdel(&(tab[i++]));
+	free(tab);
 }
 
 char	**alloc_tab(char **tab, int x, int y)
@@ -102,13 +103,4 @@ void	print_result(int y, int x)
 	ft_putchar(' ');
 	ft_putnbr(x);
 	ft_putchar('\n');
-}
-
-void	print_result_fd(int y, int x)
-{
-	ft_putstr_fd("RESULT = ", fd);
-	ft_putnbr_fd(y, fd);
-	ft_putchar_fd(' ', fd);
-	ft_putnbr_fd(x, fd);
-	ft_putchar_fd('\n', fd);
 }

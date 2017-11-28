@@ -12,18 +12,19 @@
 
 #ifndef FILLER_H
 # define FILLER_H
-# define ICI printf("ICI\n");
-# define LA printf("LA\n");
 # include "../libft/libft.h"
 # include <stdarg.h>
 # include <stdio.h>
 # include <unistd.h>
 # include <fcntl.h>
 
-int	fd;
-
 typedef struct			s_struct
 {
+  int			selec;
+   int			pos2_X;
+  int			pos2_Y; 
+  int			pos1_X;
+  int			pos1_Y;
 	char			gentil;
 	int				nb_stars;
 	char			**map;
@@ -38,6 +39,8 @@ typedef struct			s_struct
 }						t_struct;
 
 void	c_tipar(t_struct *d, int *re);
+void	get_pos(t_struct *d, int *re);
+void	choose_algo(t_struct *d, int *re);
 int		la_promenade(t_struct *d);
 int		la_repromenade(t_struct *d);
 int		la_rebalade(t_struct *d);

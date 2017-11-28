@@ -14,19 +14,24 @@
 
 int	get_piece(t_struct *d, char *buf)
 {
-	int lol;
+  int lol;
+  char *str;
 
-	lol = ft_strlen("Piece ");
-	if (ft_strncmp(buf, "Piece ", lol) == 0)
+  lol = ft_strlen("Piece ");
+  if (ft_strncmp(buf, "Piece ", lol) == 0)
     {
-		d->piece_y_max = ft_atoi(buf + lol);
-		d->piece_x_max = ft_atoi(buf + lol +
-								 ft_strlen(ft_itoa(d->piece_y_max)));
-		if (!((d->piece = alloc_tab(d->piece, d->piece_x_max, d->piece_y_max))))
-			return (-1);
-		return (1);
+      d->piece_y_max = ft_atoi(buf + lol);
+      if (!(str = ft_itoa(d->piece_y_max)))
+	return (-1);
+      d->piece_x_max = ft_atoi(buf + lol +
+			       ft_strlen(str));
+      if (!((d->piece = alloc_tab(d->piece, d->piece_x_max, d->piece_y_max))))
+	return (-1);
+		
+      free(str);
+      return (1);
     }
-	return (fill_piece(d, buf));
+  return (fill_piece(d, buf));
 }
 
 int	get_map(t_struct *d, char *buf)
@@ -45,12 +50,16 @@ int	get_map(t_struct *d, char *buf)
 int	get_size(t_struct *d, char *buf)
 {
 	size_t lol;
+	char *str;
 
 	lol = ft_strlen("Plateau ");
 	if (ft_strncmp(buf,"Plateau ", lol) != 0)
 		return (0);
 	d->y_max = ft_atoi(buf + lol);
-	d->x_max = ft_atoi(buf + lol + ft_strlen(ft_itoa(d->y_max)));
+	if (!(str = ft_itoa(d->y_max)))
+	  return (-1);
+	d->x_max = ft_atoi(buf + lol + ft_strlen(str));
+	free(str);
 	return (1);
 }
 

@@ -25,7 +25,6 @@ int		la_rebalade(t_struct *d)
 		{
 			if (place(d, i, j) == 1)
 			{
-				print_result_fd(i, j);
 				print_result(i, j);
 				return (1);
 			}
@@ -48,8 +47,7 @@ int		la_balade(t_struct *d)
 		while (j <= d->x_max)
 		{
 			if (place(d, i, j) == 1)
-			{
-				print_result_fd(i, j);
+			  {
 				print_result(i, j);
 				return (1);
 			}
