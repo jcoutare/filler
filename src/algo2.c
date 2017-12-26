@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 12:00:48 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/11/22 17:21:11 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/12/26 16:54:58 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		la_balade(t_struct *d)
 		while (j <= d->x_max)
 		{
 			if (place(d, i, j) == 1)
-			  {
+			{
 				print_result(i, j);
 				return (1);
 			}

@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 15:20:13 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/10/09 14:05:51 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/10/09 14:09:01 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@
 # define FT_PRINTF_H
 # define ICI printf("ici\n")
 # define LA printf("la\n")
-# include "libft.h"
+# include "../libft/libft.h"
 # include <stdarg.h>
 # include <stdio.h>
 # include <sys/types.h>
 # include <wchar.h>
+
 typedef struct			s_struct
 {
 	int					fail;
-	size_t					c_kc;
+	size_t				c_kc;
 	int					precfail;
 	int					modif;
 	int					f_sharp;

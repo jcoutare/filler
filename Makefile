@@ -6,11 +6,13 @@
 #    By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/16 11:07:45 by jcoutare          #+#    #+#              #
-#    Updated: 2017/12/26 16:49:51 by jcoutare         ###   ########.fr        #
+#    Updated: 2017/12/26 17:02:51 by jcoutare         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
-SRC = 	src/algo2.c \
+SRC = 	src/print.c \
+		src/pos.c \
+		src/algo2.c \
 		src/algo.c \
 		src/read.c \
 		src/parse.c \

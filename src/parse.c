@@ -6,69 +6,67 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 10:04:52 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/11/21 15:00:04 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/12/26 16:57:21 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-int	get_piece(t_struct *d, char *buf)
+int		get_piece(t_struct *d, char *buf)
 {
-  int lol;
-  char *str;
+	int			lol;
+	char		*str;
 
-  lol = ft_strlen("Piece ");
-  if (ft_strncmp(buf, "Piece ", lol) == 0)
-    {
-      d->piece_y_max = ft_atoi(buf + lol);
-      if (!(str = ft_itoa(d->piece_y_max)))
-	return (-1);
-      d->piece_x_max = ft_atoi(buf + lol +
-			       ft_strlen(str));
-      if (!((d->piece = alloc_tab(d->piece, d->piece_x_max, d->piece_y_max))))
-	return (-1);
-		
-      free(str);
-      return (1);
-    }
-  return (fill_piece(d, buf));
+	lol = ft_strlen("Piece ");
+	if (ft_strncmp(buf, "Piece ", lol) == 0)
+	{
+		d->piece_y_max = ft_atoi(buf + lol);
+		if (!(str = ft_itoa(d->piece_y_max)))
+			return (-1);
+		d->piece_x_max = ft_atoi(buf + lol + ft_strlen(str));
+		if (!((d->piece = alloc_tab(d->piece, d->piece_x_max, d->piece_y_max))))
+			return (-1);
+		free(str);
+		return (1);
+	}
+	return (fill_piece(d, buf));
 }
 
-int	get_map(t_struct *d, char *buf)
+int		get_map(t_struct *d, char *buf)
 {
 	int i;
 
 	i = 0;
 	if (ft_strncmp(buf, "    ", ft_strlen("    ")) == 0)
-    {
+	{
 		if (!((d->map = alloc_tab(d->map, d->x_max, d->y_max))))
 			return (-1);
 	}
-	return (fill_tab(d,buf));
+	return (fill_tab(d, buf));
 }
 
-int	get_size(t_struct *d, char *buf)
+int		get_size(t_struct *d, char *buf)
 {
-	size_t lol;
-	char *str;
+	size_t		lol;
+	char		*str;
 
 	lol = ft_strlen("Plateau ");
-	if (ft_strncmp(buf,"Plateau ", lol) != 0)
+	if (ft_strncmp(buf, "Plateau ", lol) != 0)
 		return (0);
 	d->y_max = ft_atoi(buf + lol);
 	if (!(str = ft_itoa(d->y_max)))
-	  return (-1);
+		return (-1);
 	d->x_max = ft_atoi(buf + lol + ft_strlen(str));
 	free(str);
 	return (1);
 }
 
-int	get_player(t_struct *d, char *buf)
+int		get_player(t_struct *d, char *buf)
 {
 	size_t lol;
 
 	lol = ft_strlen("$$$ exec p");
-	if (ft_strncmp(buf,"$$$ exec p", lol) != 0)
+	if (ft_strncmp(buf, "$$$ exec p", lol) != 0)
 		return (0);
 	d->player = ft_atoi(buf + lol);
 	if (d->player == 2)
@@ -79,23 +77,23 @@ int	get_player(t_struct *d, char *buf)
 void	parse(t_struct *d, char *buf)
 {
 	if (d->player == 0)
-    {
+	{
 		if (get_player(d, buf) == 1)
 			return ;
-    }
+	}
 	else if (d->x_max == 0 || d->y_max == 0)
-    {
+	{
 		if (get_size(d, buf) == 1)
 			return ;
-    }
+	}
 	else if (d->map_filled == 0)
-    {
+	{
 		if (get_map(d, buf) == 1)
 			return ;
-    }
+	}
 	else if (d->piece_filled == 0)
-    {
+	{
 		if (get_piece(d, buf) == 1)
 			return ;
-    }
+	}
 }
