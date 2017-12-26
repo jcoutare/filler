@@ -6,7 +6,7 @@
 #    By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/16 11:07:45 by jcoutare          #+#    #+#              #
-#    Updated: 2017/11/22 13:13:25 by jcoutare         ###   ########.fr        #
+#    Updated: 2017/12/26 16:49:51 by jcoutare         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -14,7 +14,8 @@ SRC = 	src/algo2.c \
 		src/algo.c \
 		src/read.c \
 		src/parse.c \
-		src/tools.c
+		src/tools.c \
+		src/place.c
 NAME = jcoutare.filler
 
 CC = clang
